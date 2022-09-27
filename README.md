@@ -1,6 +1,6 @@
 # Amazon-web-scraper
 <ul>
-  <li>This program get today's deals from amazon electronics page and save it to  csv file.</li>
+  <li>This program get today's deals from amazon electronics page using selenium and beautifulsoup and save it to  csv file.</li>
 </ul>
 
 <h2>Preview</h2>
