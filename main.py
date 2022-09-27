@@ -2,6 +2,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 from datetime import datetime
 import csv
+import sys
 
 
 def main():
@@ -50,7 +51,9 @@ def main():
 
             writer.writerow(row)
 
+    # Show complete message and exit with exitcode 0
     print(f"Data written to Amazon_deals_{date}.csv")
+    sys.exit(0)
 
 
 main()
