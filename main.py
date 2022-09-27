@@ -50,7 +50,7 @@ def main():
 
             writer.writerow(row)
 
-    print(f"Amazon_deals_{date}.csv file saved successfully")
+    print(f"Data written to Amazon_deals_{date}.csv")
 
 
 main()
