@@ -1,4 +1,4 @@
-# Amazon-web-scraper
+# Amazon web scraper
 <ul>
   <li>This program get Today's deals from Amazon electronics page using Selenium and Beautifulsoup and save it to  csv file.</li>
 </ul>
