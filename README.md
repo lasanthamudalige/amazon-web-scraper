@@ -1,11 +1,53 @@
 # ecommercecrawler
 
-Amazon web scraper using selenium, beautifulsoup and csv.
+Amazon web scrapering program using [Python](https://www.python.org/) and [Selenium](https://www.selenium.dev/) and [Beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/).
 
-## Description:
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Usage](#usage)
 
-The program navigates to the amaztion electronics page using selenium web driver and using beatifulsoup it gets the item name and price. After that the program write that to csv file and save it.
+## General info
 
-### Preview:
+This program will automatically save a CSV file with today's amazon electronics deals in it.   
 
-<img src="https://user-images.githubusercontent.com/91461938/192419137-66fa3fb2-2552-4320-a18a-b3326d059786.gif">
+## Technologies
+Project is created with:
+* Python version: 3.10.6
+* Selenium version: 4.7.2
+* Beautifulsoup4 version: 4.10.0
+	
+## Setup
+
+To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer.\
+From your command line run:
+
+```
+# Clone this repository
+$ git clone https://github.com/lasanthamudalige/amazon-web-scraper.git
+
+# Go into the repository
+$ cd amazon-web-scraper/
+
+# To install all dependencies
+$ pip install -r requirements.txt
+```
+
+
+## Usage
+
+To run this project in Linux/Unix:
+
+```
+$ python3 main.py
+```
+
+To run this project in Windows:
+
+```
+$ python main.py
+```
+
+## License 
+This project is open source and available under the [MIT License](https://github.com/lasanthamudalige/amazon-web-scraper/blob/main/LICENSE).
