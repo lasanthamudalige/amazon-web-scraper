@@ -10,7 +10,7 @@ Amazon web scrapering program using [Python](https://www.python.org/) and [Selen
 
 ## General info
 
-This program will automatically save a CSV file with today's amazon electronics deals in it.   
+This program will navigate to today's deal page in amazon and save those item name and prices in csv file.   
 
 ## Technologies
 Project is created with:
