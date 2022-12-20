@@ -7,23 +7,22 @@ import sys
 
 def main():
     # product url
-    url = "https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A0%252C%2522presetId%2522%253A%252264049D9C1CDF5B41F83FDB7974F9054B%2522%252C%2522departments%2522%253A%255B%2522172282%2522%255D%252C%2522sorting%2522%253A%2522BY_CUSTOM_CRITERION%2522%257D"
+    url = "https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A60%252C%2522presetId%2522%253A%2522AB48D68973BA06D9DFD05723DA760601%2522%252C%2522sorting%2522%253A%2522BY_SCORE%2522%257D"
 
     # Create webdriver and go to the top url
     driver = webdriver.Chrome()
-    driver.minimize_window()
     driver.get(url)
 
     # Get current page from webdriver
     content = driver.page_source.encode('utf-8').strip()
 
-    # Create beautifulsoup class with that page
+    # Create BeautifulSoup class with that page
     soup = BeautifulSoup(content, "html.parser")
 
-    # Get all discounted in the page
-    items = soup.find_all("h4", class_="a-offscreen")
+    # Get all discounted item name and price in the page
+    item_names = soup.find_all('div', attrs={'data-id': 'TileTitle'})
+    item_prices = soup.find_all('div', attrs={'data-id': 'DealPrice'})
 
-    # Current date
     date = datetime.today().strftime("%Y_%m_%d")
 
     # Field names for the csv file
@@ -36,19 +35,12 @@ def main():
         # Write header to the csv file
         writer.writeheader()
 
-        for item in items:
-            # Divide text inside h4 to name and price
-            item_name_tag, price_tag = item.get_text().split(";")
+        # loop through 2 list at once using zip
+        for name, price in zip(item_names, item_prices):
+            # Create a dict row with key and value using item name and item price
+            row = {"name": name.text, "price": price.text}
 
-            # Split from 'Deal' to get name and remove whitespace
-            item_name = item_name_tag.split(":")[-1].strip()
-
-            # Split from 'Deal price' to get name and remove whitespace
-            price = price_tag.split(":")[-1].strip()
-
-            # Create a dict row with key and value and add to the csv file
-            row = {"name": item_name, "price": price}
-
+            # Write to the csv file
             writer.writerow(row)
 
     # Show complete message and exit with exitcode 0
