@@ -7,7 +7,7 @@ import sys
 
 def main():
     # product url
-    url = "https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb&deals-widget=%257B%2522version%2522%253A1%252C%2522viewIndex%2522%253A60%252C%2522presetId%2522%253A%2522AB48D68973BA06D9DFD05723DA760601%2522%252C%2522sorting%2522%253A%2522BY_SCORE%2522%257D"
+    url = "https://www.amazon.com/gp/goldbox?ref_=nav_cs_gb"
 
     # Create webdriver and go to the top url
     driver = webdriver.Chrome()
